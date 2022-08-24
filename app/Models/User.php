@@ -46,18 +46,36 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
-
-    /**
-     * 画像パス（画像無し対応） $user->image_puth
-     * @return String
+    /*
+    |--------------------------------------------------------------------------
+    | リレーション
+    |--------------------------------------------------------------------------
+    |
+    |
     */
-    public function getImagePuthAttribute(){
+        # Administratorモデル リレーション ($user->admin)
+        public function admin(){
+            return $this->hasOne(Administrator::class);
+        }
 
-        //画像無し時の画像パス
-        $no_image = 'site/image/user_no_image.png';
+    /*
+    |--------------------------------------------------------------------------
+    | アクセサー
+    |--------------------------------------------------------------------------
+    |
+    |
+    */
 
-        return Storage::exists( $this->image ) ? $this->image : $no_image;
-    }
+        /**
+         * 画像パス（画像無し対応） $user->image_puth
+         * @return String
+        */
+        public function getImagePuthAttribute(){
+
+            //画像無し時の画像パス
+            $no_image = 'site/image/user_no_image.png';
+
+            return Storage::exists( $this->image ) ? $this->image : $no_image;
+        }
 
 }

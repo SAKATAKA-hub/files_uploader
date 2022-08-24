@@ -1,40 +1,10 @@
 <div class="list-group list-group-flush">
-    <a href="{{route( 'mypage' )}}"
+    {{-- <a href="{{route( 'mypage' )}}"
     class="list-group-item list-group-item-action">
         <div class="d-flex justify-content-between">
             <p class="mb-0">
                 <i class="bi bi-person-fill"></i>
                 <span class="ms-3">マイページ</span>
-            </p>
-            <i class="bi bi-chevron-right"></i>
-        </div>
-    </a>
-    <a href="{{route( 'make_question_group.create' )}}"
-    class="list-group-item list-group-item-action">
-        <div class="d-flex justify-content-between">
-            <p class="mb-0">
-                <i class="bi bi-pencil-square"></i>
-                <span class="ms-3">問題集を作る</span>
-            </p>
-            <i class="bi bi-chevron-right"></i>
-        </div>
-    </a>
-    <a href="{{route( 'like_list' )}}"
-    class="list-group-item list-group-item-action">
-        <div class="d-flex justify-content-between">
-            <p class="mb-0">
-                <i class="bi bi-heart"></i>
-                <span class="ms-3">いいねした問題集</span>
-            </p>
-            <i class="bi bi-chevron-right"></i>
-        </div>
-    </a>
-    <a href="{{route( 'results.list' )}}"
-    class="list-group-item list-group-item-action">
-        <div class="d-flex justify-content-between">
-            <p class="mb-0">
-                <i class="bi bi-graph-up"></i>
-                <span class="ms-3">受検成績</span>
             </p>
             <i class="bi bi-chevron-right"></i>
         </div>
@@ -49,7 +19,7 @@
             </p>
             <i class="bi bi-chevron-right"></i>
         </div>
-    </a>
+    </a> --}}
     <a href="{{route( 'settings' )}}"
     class="list-group-item list-group-item-action">
         <div class="d-flex justify-content-between">

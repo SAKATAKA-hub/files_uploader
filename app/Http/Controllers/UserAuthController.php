@@ -29,7 +29,7 @@ class UserAuthController extends Controller
         {
 
             # 設定（ログイン後にリダイレクトするルーティング名）
-            $route_after_login = 'mypage';
+            $route_after_login = 'home';
 
 
             # [ アカウントとパスワードの照合チェック ] -------

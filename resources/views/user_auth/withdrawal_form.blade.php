@@ -30,21 +30,24 @@
     @csrf
     @method('DELETE')
 
-    <div class="card card-body border-success mb-5">
+    <div class="card card-body border-primary mb-5">
         <h5 class="mb-4">
-            これまで”<strong class="text-success">{{env('APP_NAME')}}</strong>”のサービスをご利用<br class="d-sm-none">
+            これまで”<strong class="text-primary">{{env('APP_NAME')}}</strong>”のサービスをご利用<br class="d-sm-none">
             いただき、<br class="d-none d-sm-inline">ありがとうございました。
         </h5>
         <p>
             ご利用者様へのサービス向上を目的にアンケートの記入のお願いをしています。<br>
-            下の入力フォームより、私たちが提供するサービス”<strong class="text-success">{{env('APP_NAME')}}</strong>”
+            下の入力フォームより、私たちが提供するサービス”<strong class="text-primary">{{env('APP_NAME')}}</strong>”
             をご利用した際のご意見・ご感想などありましたら、お送りください。
         </p>
     </div>
     <!-- 本文 -->
     <div class="mb-3">
-        <label for="body" class="form-label">ご意見・ご感想</label>
-        <textarea class="form-control" name="body" id="body" rows="6"
+        <label for="body" class="form-label">
+            ご意見・ご感想
+            <small class="text-danger ms-3">※必須</small>
+        </label>
+        <textarea class="form-control" name="body" id="body" rows="6" required
         placeholder="サービス向上のため、ご意見・ご感想をお聞かせください。"></textarea>
     </div>
 

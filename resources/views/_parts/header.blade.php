@@ -1,8 +1,16 @@
 <nav class="navbar navbar-expand navbar-light mx-auto" style="max-width:1200px;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ route('home')}} ">
-            <strong class="text-success"> {{ env('APP_NAME') }}</strong>
-        </a>
+
+        <!--- サイトロゴ -->
+        <div class="navbar-brand">
+            <h1 class="m-0 h-100">
+                <a href="{{route('home')}}" class="d-flex align-items-center" style="text-decoration:none;">
+                    <strong class="text-primary"> {{ env('APP_NAME') }}</strong>
+                    {{-- <img src="{{asset('storage/site/image/header_rogo.png')}}" alt="サイトロゴ" class="" style="max-height:2rem;"> --}}
+                </a>
+            </h1>
+        </div>
+
 
         <ul class="navbar-nav ms-auto p-0 gap-2 my-2">
             @if ( Auth::check() )
@@ -20,21 +28,6 @@
                         "></div>
                         {{ Auth::user()->name.' さん' }}
                     </a>
-                    {{-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#"
-                        >マイページ</a></li>
-                        <li><a class="dropdown-item" href="{{route('results.list')}}"
-                        >成績を見る</a></li>
-                        <li><a class="dropdown-item" href="{{route('make_question_group.list')}}"
-                        >問題を作る</a></li>
-                        <li><a class="dropdown-item" href="#"
-                        >プロフィール</a></li>
-                        <li><a class="dropdown-item" href="#"
-                        >設設定変更</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('user_auth.logout') }}"
-                        >ログアウト</a></li>
-                    </ul> --}}
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="width:280px; left:auto; right:0;">
                         @include('_parts.user_menu')
                     </div>
@@ -58,7 +51,7 @@
             @else
                 <li class="nav-item"><a class="btn btn-warning" style="font-size:.6rem; " href="{{ route('user_auth.register_form') }}"
                 >会員登録</a></li>
-                <li class="nav-item"><a class="btn btn-success" style="font-size:.6rem; text-decoration:none;" href="{{ route('user_auth.login_form') }}"
+                <li class="nav-item"><a class="btn btn-primary" style="font-size:.6rem; text-decoration:none;" href="{{ route('user_auth.login_form') }}"
                 >ログイン</a></li>
             @endif
         </ul>
@@ -79,7 +72,7 @@
     </div>
     <div class="offcanvas-body">
         <!-- user_menu -->
-        @include('_parts.user_info')
+        @include('_parts.user_menu')
     </div>
 </div>
 @endif

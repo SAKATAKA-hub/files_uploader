@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @yield('meta')
 
 
-    <title>@yield('title')</title>
+    <title>ホーム</title>
 
 
     <!-- ファビコン画像の読み込み -->
@@ -21,7 +20,6 @@
     <!-- 基本 CSS -->
     <link href="{{ asset('css/index.css') }}" rel="stylesheet">
 
-    @yield('style')
 
 </head>
 <body class="bg-white">
@@ -34,24 +32,23 @@
         <section class="border-bottom border-1">
             <div class="container-1200 pb-0">
 
-                <h2 class="text-secondary fw-bold">@yield('title')</h2>
+                <h2 class="text-secondary fw-bold">HOME</h2>
 
-                <!-- breadcrumb -->
-                <nav class="mb-0" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-0 bg-white">
-                        <li class="breadcrumb-item"><a href="" class="">
-                            <i class="bi bi-house-door-fill"></i> Home
-                        </a></li>
-                        @yield('breadcrumb')
-                    </ol>
-                </nav>
             </div>
         </section>
 
 
         <!-- contents -->
         <div id="app">
-            @yield('contents')
+
+            <section class="">
+                <div class="container-1200 pb-0">
+
+                    hogehogehoge
+
+                </div>
+            </section>
+
         </div>
 
 
@@ -83,7 +80,6 @@
 
 
     <!-- bootstrap JavaScript -->
-    @yield('script')
     <script src="{{ asset('js/app.js') }}" defer></script>
 
 </body>
