@@ -15,10 +15,13 @@
 
     <!-- ファビコン画像の読み込み -->
     <link rel="shortcut icon" href="{{asset('storage/site/image/favicon.png')}}">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- bootstrap アイコン -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <!-- bootstrap CSS -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- avant-ui CSS -->
+    <link href="{{ asset('avant-ui/css/avantui.css') }}" rel="stylesheet">
+    <!-- 基本 CSS -->
     <link href="{{ asset('css/index.css') }}" rel="stylesheet">
 
     <style>
@@ -31,8 +34,7 @@
     @yield('style')
 </head>
 <body>
-    <header>
-        {{-- <nav class=" container-1200 navbar navbar-expand-lg"> --}}
+    <header class="bg-gradient-red border-bottom">
         <nav class="navbar navbar-expand navbar-light mx-auto" style="max-width:1200px;">
 
             <div class="container-fluid">
@@ -40,14 +42,15 @@
 
                 <!--- サイトロゴ -->
                 <div class="navbar-brand">
-                    <h1 class="m-0 d-flex align-items-center">
-                        {{-- <img src="{{asset('storage/site/image/header_rogo.png')}}" alt="サイトロゴ" class="" style="max-height:2rem;"> --}}
-                        <a href="{{route('admin.home')}}" class="navbar-brand text-dark">
-                            <span class=" fs-2 fw-bold">{{ env('APP_NAME') }}</span>
-                            <span class="fw-bold" style="font-size:1rem;">管理者ページ</span>
+                    <h1 class="m-0 h-100 fs-6">
+                        <a href="{{route('admin.home')}}" class="d-flex flex-column" style="text-decoration:none;">
+                            <div class="text-center">
+                                <img src="{{asset('storage/site/image/header_rogo.png')}}" alt="サイトロゴ" class="" style="max-height:1rem; ">
+                            </div>
+                            <div class="text-white ms-2">{{ env('APP_NAME') }}　管理者画面</div>
                         </a>
-
                     </h1>
+
                 </div>
 
 
@@ -58,58 +61,20 @@
                 </button>
 
             </div>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav justify-content-center">
-                    {{-- <li class="nav-item">
-                        <a class="nav-link text-secondary" href="{{ route('admin.survey_form_list') }}">アンケート</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" href="{{ route('admin.schedule_request.format_list') }}">日程予約</a>
-                    </li> --}}
-                    {{-- <li class="nav-item">
-                        <a class="nav-link text-secondary" href="{{route('admin.register_list')}}">管理者一覧</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" href="{{route('admin.login_record_list')}}">ログイン履歴</a>
-                    </li> --}}
-
-
+            <div class="" id="navbarNav">
+                <ul class="navbar-nav justify-content-center p-0 m-0">
                     <li class="nav-item d-flex ms-md-5">
-
-
                         <!-- user menu -->
                         <div class="dropdown">
-                            <a class="nav-link dropdown-toggle text-secondary" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" style="font-size:11px;"
+                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
                                 <strong>{{$admin->name}}</strong>さんがログイン中
 
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
                                 @if (Auth::check())
-
-
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('admin.register_edit', $admin->id) }}">アカウント情報変更</a>
-                                    </li>
-
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('admin.register_edit', $admin->id) }}">パスワード変更</a>
-                                    </li>
-
-
-                                    <li><hr class="dropdown-divider"></li>
-
-
-                                    <li>
-                                        <a class="dropdown-item" href="{{route('admin.register_list')}}">管理者一覧</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{route('admin.login_record_list')}}">ログイン履歴</a>
-                                    </li>
-
-                                    <li><hr class="dropdown-divider"></li>
 
                                     <li>
                                         <form method="POST" action="{{route('admin_auth.logout')}}" lass="dropdown-item">
@@ -130,6 +95,25 @@
         </nav>
     </header>
     <main>
+        <!-- 見出しタイトル -->
+        <section class="pt-3">
+            <div class="container-1200 pb-0">
+
+                <h2 class="fs-5 text-secondary fw-bold">@yield('title')</h2>
+
+            </div>
+        </section>
+
+
+
+
+        <!-- contents -->
+        <div id="app">
+            @yield('contents')
+        </div>
+
+
+
 
         <!-- 登録完了アラート -->
         @php $alerts = ['alert-success','alert-danger',] @endphp
@@ -144,7 +128,6 @@
             @endif
         @endforeach
 
-        @yield('contents')
 
     </main>
     <footer>

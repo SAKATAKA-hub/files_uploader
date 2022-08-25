@@ -25,26 +25,26 @@
 
 </head>
 <body class="bg-white">
-    <header>
+    <header class="bg-light border-bottom">
         @include('_parts.header')
     </header>
-    <main>
+    <main >
 
         <!-- 見出しタイトル -->
-        <section class="border-bottom border-1">
+        <section class="pt-3">
             <div class="container-1200 pb-0">
 
-                <h2 class="text-secondary fw-bold">@yield('title')</h2>
+                <h2 class="fs-5 text-secondary fw-bold">@yield('title')</h2>
 
                 <!-- breadcrumb -->
-                <nav class="mb-0" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-0 bg-white">
+                {{-- <nav class="mb-0" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 bg-light">
                         <li class="breadcrumb-item"><a href="" class="">
                             <i class="bi bi-house-door-fill"></i> Home
                         </a></li>
                         @yield('breadcrumb')
                     </ol>
-                </nav>
+                </nav> --}}
             </div>
         </section>
 

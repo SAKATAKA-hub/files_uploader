@@ -3,10 +3,10 @@
 
         <!--- サイトロゴ -->
         <div class="navbar-brand">
-            <h1 class="m-0 h-100">
+            <h1 class="m-0 h-100 fs-6">
                 <a href="{{route('home')}}" class="d-flex align-items-center" style="text-decoration:none;">
-                    <strong class="text-primary"> {{ env('APP_NAME') }}</strong>
-                    {{-- <img src="{{asset('storage/site/image/header_rogo.png')}}" alt="サイトロゴ" class="" style="max-height:2rem;"> --}}
+                    <img src="{{asset('storage/site/image/header_rogo.png')}}" alt="サイトロゴ" style="max-height:1.6rem; ">
+                    <strong class="text-dark ms-2"> {{ env('APP_NAME') }}</strong>
                 </a>
             </h1>
         </div>
@@ -17,7 +17,7 @@
 
                 <!-- PC -->
                 <li class="nav-item dropdown d-none d-md-block">
-                    <a class="nav-link dropdown-toggle p-0" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                    <a class="nav-link dropdown-toggle p-0 text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
                         <div class="user-image border ratio ratio-1x1 d-inline-block" style="
                         background:url({{ asset('storage/'. Auth::user()->image_puth ) }});
                         background-repeat  : no-repeat;

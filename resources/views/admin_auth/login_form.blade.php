@@ -14,31 +14,40 @@
 
     <!-- ファビコン画像の読み込み -->
     <link rel="shortcut icon" href="{{asset('storage/site/image/favicon.png')}}">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/index.css') }}" rel="stylesheet">
+    <!-- bootstrap アイコン -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <!-- bootstrap CSS -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- avant-ui CSS -->
+    <link href="{{ asset('avant-ui/css/avantui.css') }}" rel="stylesheet">
+    <!-- 基本 CSS -->
+    <link href="{{ asset('css/index.css') }}" rel="stylesheet">
 
 
-    <style>
-    </style>
 
 
 </head>
 <body>
     <header class="container-600">
-        <nav class=" container-1200 navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
 
 
                 <!--- サイトロゴ -->
                 <div class="navbar-brand">
 
-                    <h1 class="m-0 d-flex align-items-center">
+                    {{-- <h1 class="m-0 d-flex align-items-center">
                         <a href="{{route('admin.home')}}" class="navbar-brand text-dark">
                             <span class=" fs-2 fw-bold">{{ env('APP_NAME') }}</span>
                             <span class="fw-bold" style="font-size:1rem;">管理者ページ</span>
+                        </a>
+                    </h1> --}}
+                    <h1 class="m-0 h-100 fs-5">
+                        <a href="{{route('admin.home')}}" class="d-flex flex-column" style="text-decoration:none;">
+                            <div class="text-center">
+                                <img src="{{asset('storage/site/image/header_rogo.png')}}" alt="サイトロゴ" class="" style="max-height:1rem; ">
+                            </div>
+                            <div class="text-secondary ms-2">{{ env('APP_NAME') }}　管理者画面</div>
                         </a>
                     </h1>
 
@@ -50,7 +59,7 @@
     <main class="container-600">
 
         <div class="card">
-            <h5 class="card-header bg-primary text-white">{{ __('ログイン') }}</h5>
+            <h5 class="card-header bg-gradient-red text-white">{{ __('ログイン') }}</h5>
 
             <div class="card-body">
                 <form method="POST" action="{{ route('admin_auth.login') }}">
@@ -78,7 +87,7 @@
 
                     <div class="row mb-0">
                         <div class="col-md-8 offset-md-4">
-                            <button type="submit" class="btn btn-primary text-white">
+                            <button type="submit" class="btn bg-gradient-red text-white">
                                 {{ __('ログイン') }}
                             </button>
 

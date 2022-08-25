@@ -165,104 +165,172 @@ Route::get('/', function(){ return view('home'); })
 
 //
 
-    /*
-    |--------------------------------------------------------------------------
-    | 管理者(Administartor) - 認証
-    |--------------------------------------------------------------------------
-    */
+/*
+|--------------------------------------------------------------------------
+| 管理者(Administartor) - 認証
+|--------------------------------------------------------------------------
+*/
 
-        # ログイン画面の表示(admin_auth.login_form)
-        Route::get('/admin_auth/login_form', function () { return view('admin_auth.login_form'); })
-        ->name('admin_auth.login_form');
+    # ログイン画面の表示(admin_auth.login_form)
+    Route::get('/admin_auth/login_form', function () { return view('admin_auth.login_form'); })
+    ->name('admin_auth.login_form');
 
-            # ログイン処理(admin_auth.login)
-            Route::post('/admin_auth/login', [Controllers\AdminAuthController ::class, 'login'])
-            ->name('admin_auth.login');
+        # ログイン処理(admin_auth.login)
+        Route::post('/admin_auth/login', [Controllers\AdminAuthController ::class, 'login'])
+        ->name('admin_auth.login');
 
-            # ログアウト処理(admin_auth.logout)
-            Route::post('/admin_auth/logout', [Controllers\AdminAuthController ::class, 'logout'])
-            ->name('admin_auth.logout');
-        //
-
-        // # パスワードリセット画面の表示(admin_auth.reset_pass_form)
-        // Route::get('/admin_auth/reset_pass_form', [Controllers\AdminAuthController ::class, 'reset_pass_form'])
-        // ->name('admin_auth.reset_pass_form');
-
-            # パスワードリセット処理(admin_auth.reset_pass)
-            // Route::get('/admin_auth/reset_pass', [Controllers\AdminAuthController ::class, 'reset_pass'])
-            // ->name('admin_auth.reset_pass');
-        //
-
-        // # 管理者登録画面の表示(admin_auth.register_form)
-        // Route::get('/admin_auth/register_form', [Controllers\AdminAuthController ::class, 'register_form'])
-        // ->name('admin_auth.register_form');
-
-            # 管理者登録処理(admin_auth.register)
-            // Route::get('/admin_auth/register', [Controllers\AdminAuthController ::class, 'register'])
-            // ->name('admin_auth.register');
-
-        //
+        # ログアウト処理(admin_auth.logout)
+        Route::post('/admin_auth/logout', [Controllers\AdminAuthController ::class, 'logout'])
+        ->name('admin_auth.logout');
     //
 
-
-    /*
-    |--------------------------------------------------------------------------
-    | 管理者ページ
-    |--------------------------------------------------------------------------
-    */
-        Route::middleware(['admin_auth'])->group(function () {
-
-            # ホーム(home)
-            Route::get('/admin/home', function () { return view('admin.home'); })
-            ->name('admin.home');
+//
 
 
-            /**
-             * ----------------------------------
-             *  管理者登録　処理
-             * ----------------------------------
-            */
-                # 管理者一覧の表示(register_list)
-                Route::get('admin/register_list',[App\Http\Controllers\AdminController::class,'register_list'])
-                ->name('admin.register_list');
+/*
+|--------------------------------------------------------------------------
+| 管理者ページ
+|--------------------------------------------------------------------------
+*/
+    Route::middleware(['admin_auth'])->group(function () {
 
-                # 管理者登録画面の表示(register_input)
-                Route::get('admin/register_input',function(){ return view('admin.register_input'); })
-                ->name('admin.register_input');
+        # ホーム(home)
+        Route::get('/admin', function () {
 
-                # 管理者登録処理(register_post)
-                Route::post('admin/register_post',[App\Http\Controllers\AdminController::class,'register_post'])
-                ->name('admin.register_post');
+            return redirect()->route( 'admin.dir_company.list' ); //求人企業一覧
+            return view('admin.home');
+        })->name('admin.home');
 
+        /**
+         * ----------------------------------
+         *  求人企業一覧　処理 AdminDirCompanyController
+         * ----------------------------------
+        */
+            # 求人企業一覧(list)
+            Route::get('/admin/dir_company/list', [Controllers\AdminDirCompanyController::class, 'list'])
+            ->name('admin.dir_company.list');
 
+            # 求人企業新規作成フォーム(create)
+            // Route::get('/admin/dir_company/create', [Controllers\AdminDirCompanyController::class, 'create'])
+            // ->name('admin.dir_company.create');
 
-            /**
-             * ----------------------------------
-             *  管理者編集・削除　処理
-             * ----------------------------------
-            */
-                # 管理者情報編集ページの表示(register_edit)
-                Route::get('admin/register_edit/{admin_menber_id}',[App\Http\Controllers\AdminController::class,'register_edit'])
-                ->name('admin.register_edit');
+            # 求人企業新規作成処理(post)
+            // Route::get('/admin/dir_company/post', [Controllers\AdminDirCompanyController::class, 'post'])
+            // ->name('admin.dir_company.post');
 
-                # 管理者情報の更新(register_update)
-                Route::patch('admin/register_update',[App\Http\Controllers\AdminController::class,'register_update'])
-                ->name('admin.register_update');
+            # 求人企業編集フォーム(edit)
+            // Route::get('/admin/dir_company/edit', [Controllers\AdminDirCompanyController::class, 'edit'])
+            // ->name('admin.dir_company.edit');
 
-                # 管理者情報の削除(register_destroy)
-                Route::delete('admin/register_destroy',[App\Http\Controllers\AdminController::class,'register_destroy'])
-                ->name('admin.register_destroy');
-            //
-            /**
-             * ----------------------------------
-             *  ログイン履歴
-             * ----------------------------------
-            */
-                # ログイン履歴の表示(login_record_list)
-                Route::get('admin/login_record_list',[App\Http\Controllers\AdminController::class,'login_record_list'])
-                ->name('admin.login_record_list');
+            # 求人企業編集処理(update)
+            // Route::get('/admin/dir_company/update', [Controllers\AdminDirCompanyController::class, 'update'])
+            // ->name('admin.dir_company.update');
 
-        });//end middleware
-    //
+            # 求人企業の削除(destory)
+            // Route::get('/admin/dir_company/destory', [Controllers\AdminDirCompanyController::class, 'destory'])
+            // ->name('admin.dir_company.destory');
 
 
+        /**
+         * ----------------------------------
+         *  求人企業のファイル一覧　処理 AdminDirCompanyFileController
+         * ----------------------------------
+        */
+
+            # ファイル一覧(list)
+            Route::get('/admin/dir_company/file/list/{dir_company}', [Controllers\AdminDirCompanyFileController::class, 'list'])
+            ->name('admin.dir_company.file.list');
+            // Route::get('/dir_company/file/list{dir_company}/{remember_token}',
+            //[Controllers\CustomerJobCompanyFile::class, 'dir_company'])
+            // ->name('dir_company.file.list');
+
+            # ファイルの表示(show)
+            Route::get('/admin/dir_company/file/show/{file}', [Controllers\AdminDirCompanyFileController::class, 'show'])
+            ->name('admin.dir_company.file.show');
+            // Route::get('/admin/dir_company/file/show/{file}/{remember_token}',
+            //[Controllers\CustomerJobCompanyFile::class, 'list'])
+            // ->name('admin.dir_company.file.show');
+
+            # ファイルのダウンロード(download)
+            Route::get('/admin/dir_company/file/download/{file}', [Controllers\AdminDirCompanyFileController::class, 'download'])
+            ->name('admin.dir_company.file.download');
+
+
+
+            # ファイルのアップロードフォーム(upload)
+            Route::get('/admin/dir_company/file/upload', [Controllers\AdminDirCompanyFileController::class, 'upload'])
+            ->name('admin.dir_company.file.upload');
+
+            # ファイルのアップロード処理(post)
+            Route::get('/admin/dir_company/file/post', [Controllers\AdminDirCompanyFileController::class, 'post'])
+            ->name('admin.dir_company.file.post');
+
+            # ファイルの削除(destory)
+            Route::get('/admin/dir_company/file/destory', [Controllers\AdminDirCompanyFileController::class, 'destory'])
+            ->name('admin.dir_company.file.destory');
+
+
+        /**
+         * ----------------------------------
+         *  管理者登録　処理
+         * ----------------------------------
+        */
+            # 管理者一覧の表示(register_list)
+            Route::get('admin/register_list',[App\Http\Controllers\AdminController::class,'register_list'])
+            ->name('admin.register_list');
+
+            # 管理者登録画面の表示(register_input)
+            Route::get('admin/register_input',function(){ return view('admin.register_input'); })
+            ->name('admin.register_input');
+
+            # 管理者登録処理(register_post)
+            Route::post('admin/register_post',[App\Http\Controllers\AdminController::class,'register_post'])
+            ->name('admin.register_post');
+
+
+
+        /**
+         * ----------------------------------
+         *  管理者編集・削除　処理
+         * ----------------------------------
+        */
+            # 管理者情報編集ページの表示(register_edit)
+            Route::get('admin/register_edit/{admin_menber_id}',[App\Http\Controllers\AdminController::class,'register_edit'])
+            ->name('admin.register_edit');
+
+            # 管理者情報の更新(register_update)
+            Route::patch('admin/register_update',[App\Http\Controllers\AdminController::class,'register_update'])
+            ->name('admin.register_update');
+
+            # 管理者情報の削除(register_destroy)
+            Route::delete('admin/register_destroy',[App\Http\Controllers\AdminController::class,'register_destroy'])
+            ->name('admin.register_destroy');
+        //
+        /**
+         * ----------------------------------
+         *  ログイン履歴
+         * ----------------------------------
+        */
+            # ログイン履歴の表示(login_record_list)
+            Route::get('admin/login_record_list',[App\Http\Controllers\AdminController::class,'login_record_list'])
+            ->name('admin.login_record_list');
+
+    });//end middleware
+//
+
+
+# ファイル表示テスト
+Route::get('/test', function(){
+
+
+    return redirect()->to(
+        asset('storage/site/file/sampl.pdf')
+    );
+})->name('test.file.show');
+
+
+# ファイルダウンロードテスト
+Route::get('/test/file/download', function(){
+    $fileName = 'hogehoge';
+    return Storage::download($filePath='site/file/sampl.pdf', $fileName);
+})->name('test.file.download');
