@@ -151,7 +151,7 @@
     </div>
 </section>
 
-<section>
+{{-- <section>
     <div class="section_container">
         <div class=" container-900 mb-5">
 
@@ -221,7 +221,7 @@
 
         </div>
     </div>
-</section>
+</section> --}}
 
 
 @endsection

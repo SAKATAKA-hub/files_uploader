@@ -1,49 +1,45 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{title}}{{prop1}}</div>
-
-                    <div class="card-body">{{body}}{{count}}</div>
-                    <div>
-                        <button @click="countUp">加算</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div>
+        <button v-if="!disabled" :class="style_class" type="submit" @click="click">{{text}}</button>
+        <button v-else disabled  :class="style_class" type="submit">
+            <!-- スピナー -->
+            <div class="spinner-border spinner-border-sm" role="status">
+            <span class="visually-hidden">Loading...</span></div>
+            送信中
+        </button>
     </div>
 </template>
 
 <script>
+    /*
+    --------------------------------------------------------------------------
+        [ 使い方 ]
+        <submit-button-component
+            style_class="btn btn-danger" // スタイルクラスの指定
+            text="確定"                  // ボタンテキストの指定
+        />
+    --------------------------------------------------------------------------
+    */
+
     export default {
         data : function() {
             return{
 
-
-                title : 'タイトル',
-                body : '本文ほげほげ',
-                count: 0,
-
+                disabled: false,
 
             }
         },
         props: {
-            //最初に表示する画像のパス
-            prop1: { type: String, default: 'prop1', },
-            prop2: { type: String, default: 'prop2', },
+            // ボタンのスタイルクラス
+            style_class: { type: String, default: 'btn btn-primary',},
 
-        },
-        mounted() {
-
-
-            console.log('Component mounted.')
-
-
+            // ボタンテキスト
+            text: { type: String, default: '送信',},
         },
         methods:{
 
-            countUp : function(){ this.count++; }
+            click : function(){ this.disabled = true; }
+
         }
     }
 </script>

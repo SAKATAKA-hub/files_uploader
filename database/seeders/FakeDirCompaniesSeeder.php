@@ -32,6 +32,7 @@ class FakeDirCompaniesSeeder extends Seeder
                     'dir_company_id' => $dir_company->id,
                     'name'     => '企業説明('.($fi+1).')',
                     'path'     => 'site/file/sampl.pdf',
+                    'size'    => '1910320',
                     'auth_key' => \Illuminate\Support\Str::random(40),
                 ]);
                 $file->save();

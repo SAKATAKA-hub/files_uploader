@@ -29,6 +29,7 @@ class CreateFilesTable extends Migration
 
             $table->string('name',    150)->comment('ファイル名');
             $table->string('path',    150)->comment('ファイルパス');
+            $table->string('size',    150)->comment('ファイルサイズ');
             $table->string('auth_key',150)->comment('認証キー');
             $table->timestamps();
         });

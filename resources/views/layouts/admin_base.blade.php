@@ -75,7 +75,9 @@
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 @if (Auth::check())
-
+                                    <li>
+                                        <a href="{{ route('admin.register_edit',$admin->id) }}" class="dropdown-item">管理者情報編集</a>
+                                    </li>
                                     <li>
                                         <form method="POST" action="{{route('admin_auth.logout')}}" lass="dropdown-item">
                                             @csrf
@@ -107,14 +109,6 @@
 
 
 
-        <!-- contents -->
-        <div id="app">
-            @yield('contents')
-        </div>
-
-
-
-
         <!-- 登録完了アラート -->
         @php $alerts = ['alert-success','alert-danger',] @endphp
         @foreach ($alerts as $alert)
@@ -127,6 +121,16 @@
                 </div>
             @endif
         @endforeach
+
+
+
+
+        <!-- contents -->
+        <div id="app">
+            @yield('contents')
+        </div>
+
+
 
 
     </main>

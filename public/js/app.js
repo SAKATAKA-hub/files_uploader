@@ -5337,36 +5337,115 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
+
+/*
+--------------------------------------------------------------------------
+    [ 使い方 ]
+    <submit-button-component
+        style_class="btn btn-danger" // スタイルクラスの指定
+        text="確定"                  // ボタンテキストの指定
+    />
+--------------------------------------------------------------------------
+*/
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      title: 'タイトル',
-      body: '本文ほげほげ',
-      count: 0
+      disabled: false
     };
   },
   props: {
-    //最初に表示する画像のパス
-    prop1: {
+    // ボタンのスタイルクラス
+    style_class: {
       type: String,
-      "default": 'prop1'
+      "default": 'btn btn-primary'
     },
-    prop2: {
+    // ボタンテキスト
+    text: {
       type: String,
-      "default": 'prop2'
+      "default": '送信'
     }
   },
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  methods: {
+    click: function click() {
+      this.disabled = true;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Items/UrlCopyComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Items/UrlCopyComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/*
+--------------------------------------------------------------------------
+    [ 使い方 ]
+    <submit-button-component
+        style_class="btn btn-danger" // スタイルクラスの指定
+        text="確定"                  // ボタンテキストの指定
+    />
+--------------------------------------------------------------------------
+*/
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      disabled: false
+    };
+  },
+  props: {
+    // ボタンのスタイルクラス
+    copy_url: {
+      type: String,
+      "default": 'http://---'
+    }
   },
   methods: {
-    countUp: function countUp() {
-      this.count++;
+    copy: function copy(text) {
+      var _this = this;
+
+      navigator.clipboard.writeText(text).then(function () {
+        _this.disabled = true;
+        window.setTimeout(_this.disabled_false, 2000);
+      })["catch"](function (e) {
+        console.error(e);
+      });
+    },
+    disabled_false: function disabled_false() {
+      this.disabled = false;
     }
   }
 });
@@ -7492,6 +7571,7 @@ Vue.component('select-answer-component', (__webpack_require__(/*! ./components/M
 
 Vue.component('submit-button-component', (__webpack_require__(/*! ./components/Items/SubmitButtonComponent.vue */ "./resources/js/components/Items/SubmitButtonComponent.vue")["default"])); // Vue.component('count-up-timer-component', require('./components/Items/CountUpTimerComponent.vue').default);
 
+Vue.component('url-copy-component', (__webpack_require__(/*! ./components/Items/UrlCopyComponent.vue */ "./resources/js/components/Items/UrlCopyComponent.vue")["default"]));
 /* 認証 */
 
 Vue.component('reset-pass-component', (__webpack_require__(/*! ./components/UserAuth/ResetPassComponent.vue */ "./resources/js/components/UserAuth/ResetPassComponent.vue")["default"]));
@@ -30484,6 +30564,45 @@ component.options.__file = "resources/js/components/Items/SubmitButtonComponent.
 
 /***/ }),
 
+/***/ "./resources/js/components/Items/UrlCopyComponent.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/Items/UrlCopyComponent.vue ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _UrlCopyComponent_vue_vue_type_template_id_bebd3ada___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UrlCopyComponent.vue?vue&type=template&id=bebd3ada& */ "./resources/js/components/Items/UrlCopyComponent.vue?vue&type=template&id=bebd3ada&");
+/* harmony import */ var _UrlCopyComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UrlCopyComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/Items/UrlCopyComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _UrlCopyComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UrlCopyComponent_vue_vue_type_template_id_bebd3ada___WEBPACK_IMPORTED_MODULE_0__.render,
+  _UrlCopyComponent_vue_vue_type_template_id_bebd3ada___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Items/UrlCopyComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/MakeQuestion/ReadImageFileComponent.vue":
 /*!*************************************************************************!*\
   !*** ./resources/js/components/MakeQuestion/ReadImageFileComponent.vue ***!
@@ -30986,6 +31105,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Items/UrlCopyComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/Items/UrlCopyComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UrlCopyComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UrlCopyComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Items/UrlCopyComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UrlCopyComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/MakeQuestion/ReadImageFileComponent.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************!*\
   !*** ./resources/js/components/MakeQuestion/ReadImageFileComponent.vue?vue&type=script&lang=js& ***!
@@ -31221,6 +31356,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SubmitButtonComponent_vue_vue_type_template_id_0f02472e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SubmitButtonComponent_vue_vue_type_template_id_0f02472e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SubmitButtonComponent.vue?vue&type=template&id=0f02472e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Items/SubmitButtonComponent.vue?vue&type=template&id=0f02472e&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Items/UrlCopyComponent.vue?vue&type=template&id=bebd3ada&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/Items/UrlCopyComponent.vue?vue&type=template&id=bebd3ada& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UrlCopyComponent_vue_vue_type_template_id_bebd3ada___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UrlCopyComponent_vue_vue_type_template_id_bebd3ada___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UrlCopyComponent_vue_vue_type_template_id_bebd3ada___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UrlCopyComponent.vue?vue&type=template&id=bebd3ada& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Items/UrlCopyComponent.vue?vue&type=template&id=bebd3ada&");
 
 
 /***/ }),
@@ -31488,24 +31640,113 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-8" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [
-            _vm._v(_vm._s(_vm.title) + _vm._s(_vm.prop1)),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _vm._v(_vm._s(_vm.body) + _vm._s(_vm.count)),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("button", { on: { click: _vm.countUp } }, [_vm._v("加算")]),
-          ]),
-        ]),
-      ]),
-    ]),
+  return _c("div", [
+    !_vm.disabled
+      ? _c(
+          "button",
+          {
+            class: _vm.style_class,
+            attrs: { type: "submit" },
+            on: { click: _vm.click },
+          },
+          [_vm._v(_vm._s(_vm.text))]
+        )
+      : _c(
+          "button",
+          { class: _vm.style_class, attrs: { disabled: "", type: "submit" } },
+          [_vm._m(0), _vm._v("\n        送信中\n    ")]
+        ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "spinner-border spinner-border-sm",
+        attrs: { role: "status" },
+      },
+      [_c("span", { staticClass: "visually-hidden" }, [_vm._v("Loading...")])]
+    )
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Items/UrlCopyComponent.vue?vue&type=template&id=bebd3ada&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Items/UrlCopyComponent.vue?vue&type=template&id=bebd3ada& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "input-group border",
+        staticStyle: { "border-radius": "5px" },
+      },
+      [
+        _c("input", {
+          staticClass: "form-control border-0",
+          staticStyle: { "font-size": "11px" },
+          attrs: { type: "text", disabled: "" },
+          domProps: { value: _vm.copy_url },
+        }),
+        _vm._v(" "),
+        !_vm.disabled
+          ? _c(
+              "button",
+              {
+                staticClass: "btn bg-white btn-sm border-white",
+                staticStyle: { "font-size": "11px" },
+                attrs: {
+                  type: "button",
+                  "data-bs-toggle": "tooltip",
+                  "data-bs-placement": "bottom",
+                  title: "URLのコピー",
+                },
+                on: {
+                  click: function ($event) {
+                    return _vm.copy(_vm.copy_url)
+                  },
+                },
+              },
+              [
+                _c("i", { staticClass: "bi bi-files" }),
+                _vm._v("コピー\n        "),
+              ]
+            )
+          : _c(
+              "button",
+              {
+                staticClass: "btn bg-white btn-sm border-success text-success",
+                staticStyle: { "font-size": "11px" },
+                attrs: { disabled: "", type: "button" },
+              },
+              [
+                _c("i", { staticClass: "bi bi-check" }),
+                _vm._v("　完了\n        "),
+              ]
+            ),
+      ]
+    ),
   ])
 }
 var staticRenderFns = []
@@ -31699,7 +31940,7 @@ var render = function () {
                 },
               }),
               _vm._v(
-                "\n\n                テキストで答えを入力する （50文字以内）\n                "
+                "\r\n\r\n                テキストで答えを入力する （50文字以内）\r\n                "
               ),
               _c("div", { staticClass: "input-group mb-2" }, [
                 _vm._m(1),
@@ -31755,7 +31996,7 @@ var render = function () {
                   },
                 }),
                 _vm._v(
-                  "\n\n                ひとつの答えを選ぶ （50文字以内）\n                "
+                  "\r\n\r\n                ひとつの答えを選ぶ （50文字以内）\r\n                "
                 ),
                 _vm._l(_vm.options, function (option, key) {
                   return _c(
@@ -31875,7 +32116,7 @@ var render = function () {
                   },
                 }),
                 _vm._v(
-                  "\n\n\n                複数の答えを選ぶ （50文字以内）\n                "
+                  "\r\n\r\n\r\n                複数の答えを選ぶ （50文字以内）\r\n                "
                 ),
                 _vm._l(_vm.options, function (option, key) {
                   return _c(
@@ -31949,9 +32190,9 @@ var render = function () {
                             },
                             [
                               _vm._v(
-                                "\n                            " +
+                                "\r\n                            " +
                                   _vm._s(option.button_text) +
-                                  "\n                        "
+                                  "\r\n                        "
                               ),
                             ]
                           ),

@@ -32,6 +32,19 @@ class FakeAdministratorsSeeder extends Seeder
                     'get_mail' => 1,
                 ],
             ],
+            [
+                'user' => [
+                    'name' => 'Next Arrow',
+                    'email' => 'nextarrow.line@gmail.com',
+                    'password' => Hash::make('password'),
+                ],
+                'admin' => [
+                    'name' => 'Next Arrow',
+                    'master' => 1,
+                    'get_mail' => 1,
+                ],
+            ],
+
         ];
 
 

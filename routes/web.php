@@ -4,8 +4,26 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers;
 
 # Home
-Route::get('/', function(){ return view('home'); })
-->name('home');
+Route::get('/', function(){
+
+    return redirect()->route( 'admin.dir_company.list' ); //求人企業一覧
+
+    // return view('home');
+})->name('home');
+
+/**
+ * ----------------------------------
+ *  求人企業のファイル一覧　処理 CompanyFileController
+ * ----------------------------------
+*/
+
+    # ファイル一覧(list)
+    Route::get('/dir_company/file/list/{dir_company}/{auth_key}', [Controllers\CompanyFileController::class, 'list'])
+    ->name('dir_company.file.list');
+
+    # ファイルの表示(show)
+    Route::get('/dir_company/file/show/{file}/{auth_key}', [Controllers\CompanyFileController::class, 'show'])
+    ->name('dir_company.file.show');
 
 /*
 |--------------------------------------------------------------------------
@@ -198,7 +216,7 @@ Route::get('/', function(){ return view('home'); })
         Route::get('/admin', function () {
 
             return redirect()->route( 'admin.dir_company.list' ); //求人企業一覧
-            return view('admin.home');
+            // return view('admin.home');
         })->name('admin.home');
 
         /**
@@ -210,25 +228,17 @@ Route::get('/', function(){ return view('home'); })
             Route::get('/admin/dir_company/list', [Controllers\AdminDirCompanyController::class, 'list'])
             ->name('admin.dir_company.list');
 
-            # 求人企業新規作成フォーム(create)
-            // Route::get('/admin/dir_company/create', [Controllers\AdminDirCompanyController::class, 'create'])
-            // ->name('admin.dir_company.create');
-
             # 求人企業新規作成処理(post)
-            // Route::get('/admin/dir_company/post', [Controllers\AdminDirCompanyController::class, 'post'])
-            // ->name('admin.dir_company.post');
-
-            # 求人企業編集フォーム(edit)
-            // Route::get('/admin/dir_company/edit', [Controllers\AdminDirCompanyController::class, 'edit'])
-            // ->name('admin.dir_company.edit');
+            Route::post('/admin/dir_company/post', [Controllers\AdminDirCompanyController::class, 'post'])
+            ->name('admin.dir_company.post');
 
             # 求人企業編集処理(update)
-            // Route::get('/admin/dir_company/update', [Controllers\AdminDirCompanyController::class, 'update'])
-            // ->name('admin.dir_company.update');
+            Route::patch('/admin/dir_company/update', [Controllers\AdminDirCompanyController::class, 'update'])
+            ->name('admin.dir_company.update');
 
             # 求人企業の削除(destory)
-            // Route::get('/admin/dir_company/destory', [Controllers\AdminDirCompanyController::class, 'destory'])
-            // ->name('admin.dir_company.destory');
+            Route::delete('/admin/dir_company/destory', [Controllers\AdminDirCompanyController::class, 'destory'])
+            ->name('admin.dir_company.destory');
 
 
         /**
@@ -238,35 +248,27 @@ Route::get('/', function(){ return view('home'); })
         */
 
             # ファイル一覧(list)
-            Route::get('/admin/dir_company/file/list/{dir_company}', [Controllers\AdminDirCompanyFileController::class, 'list'])
+            Route::get('/admin/dir_company/file/list/{dir_company}/{auth_key}', [Controllers\AdminDirCompanyFileController::class, 'list'])
             ->name('admin.dir_company.file.list');
-            // Route::get('/dir_company/file/list{dir_company}/{remember_token}',
-            //[Controllers\CustomerJobCompanyFile::class, 'dir_company'])
-            // ->name('dir_company.file.list');
 
             # ファイルの表示(show)
-            Route::get('/admin/dir_company/file/show/{file}', [Controllers\AdminDirCompanyFileController::class, 'show'])
+            Route::get('/admin/dir_company/file/show/{file}/{auth_key}', [Controllers\AdminDirCompanyFileController::class, 'show'])
             ->name('admin.dir_company.file.show');
-            // Route::get('/admin/dir_company/file/show/{file}/{remember_token}',
-            //[Controllers\CustomerJobCompanyFile::class, 'list'])
-            // ->name('admin.dir_company.file.show');
+
 
             # ファイルのダウンロード(download)
-            Route::get('/admin/dir_company/file/download/{file}', [Controllers\AdminDirCompanyFileController::class, 'download'])
+            Route::get('/admin/dir_company/file/download/{file}/{auth_key}', [Controllers\AdminDirCompanyFileController::class, 'download'])
             ->name('admin.dir_company.file.download');
 
 
 
-            # ファイルのアップロードフォーム(upload)
-            Route::get('/admin/dir_company/file/upload', [Controllers\AdminDirCompanyFileController::class, 'upload'])
+
+            # ファイルのアップロード処理(upload)
+            Route::post('/admin/dir_company/file/upload', [Controllers\AdminDirCompanyFileController::class, 'upload'])
             ->name('admin.dir_company.file.upload');
 
-            # ファイルのアップロード処理(post)
-            Route::get('/admin/dir_company/file/post', [Controllers\AdminDirCompanyFileController::class, 'post'])
-            ->name('admin.dir_company.file.post');
-
             # ファイルの削除(destory)
-            Route::get('/admin/dir_company/file/destory', [Controllers\AdminDirCompanyFileController::class, 'destory'])
+            Route::delete('/admin/dir_company/file/destory', [Controllers\AdminDirCompanyFileController::class, 'destory'])
             ->name('admin.dir_company.file.destory');
 
 

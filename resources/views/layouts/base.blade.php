@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @yield('meta')
 
-
     <title>@yield('title')</title>
 
 
@@ -21,7 +20,6 @@
     <!-- 基本 CSS -->
     <link href="{{ asset('css/index.css') }}" rel="stylesheet">
 
-    @yield('style')
 
 </head>
 <body class="bg-white">
@@ -36,15 +34,6 @@
 
                 <h2 class="fs-5 text-secondary fw-bold">@yield('title')</h2>
 
-                <!-- breadcrumb -->
-                {{-- <nav class="mb-0" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-0 bg-light">
-                        <li class="breadcrumb-item"><a href="" class="">
-                            <i class="bi bi-house-door-fill"></i> Home
-                        </a></li>
-                        @yield('breadcrumb')
-                    </ol>
-                </nav> --}}
             </div>
         </section>
 
